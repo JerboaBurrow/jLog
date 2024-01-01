@@ -47,7 +47,7 @@
 namespace jLog
 {
   
-  std::string get_time()
+  inline std::string get_time()
   {
     time_t time = std::time(nullptr);
     char time_buf[80];
@@ -115,7 +115,7 @@ namespace jLog
     std::vector<std::string> logStream;
   };
 
-  std::ostream & operator<<(std::ostream & o, Log & l)
+  inline std::ostream & operator<<(std::ostream & o, Log & l)
   {
     o << l.get();
     return o;
@@ -172,7 +172,7 @@ namespace jLog
 
   enum ERRORCODE { UNSPECIFIED, LUA_ERROR};
 
-  std::string operator+ (std::string s, const ERRORCODE e)
+  inline std::string operator+ (std::string s, const ERRORCODE e)
   {
     switch (e) 
     {
