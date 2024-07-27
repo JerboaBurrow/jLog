@@ -166,7 +166,7 @@ namespace jLog
   };
 
   /*
-    ERROR log type leaves a [ERROR] declarator follwed by a (ERRORCODE) and
+    ERR log type leaves a [ERR] declarator follwed by a (ERRORCODE) and
     finally a msg
   */
 
@@ -187,15 +187,15 @@ namespace jLog
     }
   }
 
-  class ERROR : public LogType{
+  class ERR : public LogType{
   public:
-    ERROR(std::string s) : LogType(s) {}
-    ERROR(const char * c) : LogType(c) {}
-    ERROR(ERRORCODE xx, std::string s) : LogType(s), x(xx) {}
-    ERROR(ERRORCODE xx, const char * c) : LogType(c), x(xx) {}
+    ERR(std::string s) : LogType(s) {}
+    ERR(const char * c) : LogType(c) {}
+    ERR(ERRORCODE xx, std::string s) : LogType(s), x(xx) {}
+    ERR(ERRORCODE xx, const char * c) : LogType(c), x(xx) {}
     std::string get()const{return u+std::string("\033[1;33m(")+x+std::string(")\033[0m ")+msg;}
   private:
-    const char * u = "\033[1;31m[ERROR] \033[0m";
+    const char * u = "\033[1;31m[ERR] \033[0m";
     ERRORCODE x = ERRORCODE::UNSPECIFIED;
   };
 
